@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+import java.util.function.Predicate;
+
 
 
 
@@ -130,6 +132,29 @@ public class AddressBook {
 	        person1.setEmail(sc.next());
 	        return person1;
 	    }
+	    public void searchByCity(String city) {
+	        Predicate<ContactPerson> searchPerson = (contact -> contact.getCity().equals(city));
+	        contactBook.stream().filter(searchPerson).forEach(person -> output(person));
+	    }
+
+	    public void searchByState(String state) {
+	        Predicate<ContactPerson> searchPerson = (contact -> contact.getState().equals(state));
+	        contactBook.stream().filter(searchPerson).forEach(person -> output(person));
+	    }
+
+	    private static void output(ContactPerson person) {
+	        System.out.println("firstName : " + person.getFirstName());
+	        System.out.println("SecondName : " + person.getLastName());
+	        System.out.println("Address : " + person.getAddress());
+	        System.out.println("City : " + person.getCity());
+	        System.out.println("State : " + person.getState());
+	        System.out.println("Pin code : " + person.getZip());
+	        System.out.println("Phone number : " + person.getPhoneNumber());
+	        System.out.println("email : " + person.getEmail());
+	        System.out.println();
+	    }
+
+	}
 
 	}
 	    
