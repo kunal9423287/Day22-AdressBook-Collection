@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 
 
@@ -112,6 +113,14 @@ public class AddressBook {
 	     public void display() {
 	         for (int index = 0; index < numberOfConatcts; index++) {
 	             System.out.println(contactBook[index]);
+	         }
+	     }
+	     
+	     public void addMultipleContacts() {
+	         System.out.println("Enter number of contacts to Add");
+	         int number = sc.nextInt();
+	         for (int i = 0; i < number; i++) {
+	             addContacts();
 	         }
 	     }
 	 }
